@@ -6,41 +6,46 @@ Andreas Braxmeier
 ---
 Zweck
 Dieses Repositorium enthält den vollständigen Auswertungsweg des Pretests: vom
-unveränderten Rohdatenexport bis zu den Kennwerten und Abbildungen, die im
-Pretest-Bericht berichtet werden.
+unveränderten Rohdatenexport bis zum fertigen Ergebnisdokument mit Kennwerten,
+Tabellen und Abbildungen.
 Ziel ist die Reproduzierbarkeit. Alle im Bericht genannten Zahlen lassen
 sich durch einmaliges Ausführen des Skripts identisch nachvollziehen. Es wurden
 keine Werte manuell eingetragen, nachgerechnet oder nachträglich korrigiert.
 ---
 Inhalt
 Datei	Beschreibung
-`auswertung_resonanz.py`	Auswertungsskript (Python)
-`start_auswertung.bat`	Startdatei für Windows – Doppelklick genügt
+`auswertung_resonanz.py`	Auswertungsskript
 `Pretest_Export_soscisurvey.xlsx`	Unveränderter Rohdatenexport aus SoSci Survey
-`abb1_skalen.png`	Abbildung 1 – Kurzskalen (wird beim Ausführen erzeugt)
-`abb2_items.png`	Abbildung 2 – Einzelitems (wird beim Ausführen erzeugt)
+`README.md`	Diese Anleitung
+Beim Ausführen wird zusätzlich die Datei
+`RESONANZ_Auswertung_Ergebnis.docx` erzeugt. Sie enthält alle Tabellen und
+beide Abbildungen. Die Abbildungen werden direkt in das Word-Dokument
+eingebettet und nicht als separate Bilddateien gespeichert.
 ---
 Ausführen
 Voraussetzungen
-Python 3.9 oder neuer. Zusätzlich zwei Bibliotheken:
+Python 3.9 oder neuer sowie drei Bibliotheken:
 ```
-pip install openpyxl matplotlib
+pip install openpyxl matplotlib python-docx
 ```
-Variante A – Windows, ohne Vorkenntnisse
-Repositorium herunterladen (`Code` → `Download ZIP`) und entpacken
-Doppelklick auf `start_auswertung.bat`
-Das Fenster bleibt nach dem Durchlauf offen, bis Enter gedrückt wird.
-Variante B – Kommandozeile
+Aufruf
 ```
-cd <Ordner>
 python auswertung_resonanz.py
 ```
-Alle Dateien müssen im selben Ordner liegen. Das Skript sucht die
+Skript und Excel-Datei müssen im selben Ordner liegen. Das Skript sucht die
 Excel-Datei relativ zum Arbeitsverzeichnis.
 Ergebnis
-Die Kennwerte werden in der Konsole ausgegeben, die beiden Abbildungen
-werden als PNG-Dateien (300 dpi) im selben Ordner gespeichert und dabei
-überschrieben.
+In der Konsole werden die Fallzahlen ausgegeben. Im selben Ordner entsteht das
+Word-Ergebnisdokument mit folgenden Abschnitten:
+Fallzahlen
+Stichprobenbeschreibung
+Vorerfahrung: genutzte Apps und Zufriedenheit
+Einzelitems
+Kurzskalen
+Antwortverteilungen
+Abbildungen
+Offene Antworten
+Ein bestehendes Ergebnisdokument wird dabei überschrieben.
 ---
 Methodische Entscheidungen
 Die folgenden Punkte sind bewusst so umgesetzt und für das Verständnis der
